@@ -1,4 +1,10 @@
 <div class="App">
     <h1>Monsters Rolodex</h1>
-    <app-card-list></app-card-list>
+        <div class="card-list">
+            <app-card-list 
+            *ngFor="let monsterEl of monsters" 
+            [monster]="monsterEl"> 
+              </app-card-list>
+        </div>
     </div>
+  
