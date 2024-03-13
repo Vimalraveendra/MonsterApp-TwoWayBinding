@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class AppComponent implements OnInit ,OnDestroy{
   title = 'monster-app-two-way-bind';
    isFetching:boolean=false;
+   searchField:string="";
    monsters:Monster[]=[];
    error:String =null;
    subscription:Subscription;
@@ -21,6 +22,10 @@ export class AppComponent implements OnInit ,OnDestroy{
       this.subscription = this.fetchMonsters();
   }
 
+  onFilterMonster(searchFieldValue:string){
+    this.searchField=searchFieldValue;
+    };
+
 
 
    private fetchMonsters(){
@@ -28,7 +33,6 @@ export class AppComponent implements OnInit ,OnDestroy{
      return this.http.get("https://jsonplaceholder.typicode.com/users")
      .subscribe({
       next:(users:Monster[])=>{
-        console.log("users",users)
         this.isFetching =false;
         this.monsters=users;
       },

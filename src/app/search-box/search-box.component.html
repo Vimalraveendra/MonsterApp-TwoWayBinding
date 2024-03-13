@@ -3,6 +3,6 @@
       class = "search-box"
         type="search" 
        [(ngModel)]="searchField"
+       (ngModelChange)="onUpdateSearchText($event)"
           />
-          <p>{{searchField}}</p>
     </div>
