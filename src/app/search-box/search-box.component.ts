@@ -7,10 +7,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchBoxComponent {
   searchField:String=null;
-  @Output()searchTextEvent=new EventEmitter();
+  @Output()searchTextEvent=new EventEmitter<any>();
 
-  onUpdateSearchText(event:Event){
-    this.searchField=(<HTMLInputElement>event.target).value;
+  onUpdateSearchText(inputValue:any){
+    this.searchField=inputValue;
     this.searchTextEvent.emit(this.searchField );
   }
 }
